@@ -1,22 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = parseInt(process.env.PORT || 9000)
-
-
-// ID,Full Name,Title,Number of Dogs
-// 1,Kyle Coberly,Faculty Director,0
-// 2,Danny Fritz,Lead Instructor,0
-// 3,CJ Reynolds,Lead Instructor,0
-// 4,Brooks Patton,Lead Instructor,0
-// 5,Roberto Ortega,Lead Instructor,1
-// 6,Chad Drummond,Instructor,0
-// 7,Kim Schlesinger,Instructor,0
-// 8,Peter Ostiguy,Associate Instructor,1
-// 9,Cass Torske,Resident,1
-// 10,Matt Winzer,Resident,2
-// 11,Aaron Goodman,Resident,0
-// 12,Michelle Bergquist,Resident,1
+const port = parseInt(process.env.PORT || 9000);
 
 var data = [
     {
@@ -90,14 +75,12 @@ var data = [
         "Full Name":"Michelle Bergquist",
         "Title":"Resident",
         "Number of Dogs":1
-    },
+    }
 
 ];
 
 function findByID(id){
-    var retval;
-    data.forEach( c => {if (c["ID"] == id) {retval = c}})
-    return retval;
+    return data.filter( i => i["ID"] == id)[0];
 }
 
 app.use(cors());
@@ -109,11 +92,10 @@ app.get("/", (request,response) => {
 
 app.get("/:id", (request, response) => {
     let instructor = findByID(request.params.id);
-    response.json( 
-        instructor 
-        ? {data: instructor} 
-        : {error: {"message":"No record found!"} }
-    );
+     
+    instructor 
+    ? response.json({data: instructor} )
+    : response.status(404).json({error: {"message":"No record found!"} });
 });
 
 app.listen(port)
