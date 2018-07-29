@@ -5,82 +5,82 @@ const port = parseInt(process.env.PORT || 9000);
 
 var data = [
     {
-        "ID":1,
-        "Full Name":"Kyle Coberly",
-        "Title":"Faculty Director",
-        "Number of Dogs":0
+        id:1,
+        fullName:"Kyle Coberly",
+        title:"Faculty Director",
+        numberOfDogs:0
     },
     {
-        "ID":2,
-        "Full Name":"Danny Fritz",
-        "Title":"Lead Instructor",
-        "Number of Dogs":0
+        id:2,
+        fullName:"Danny Fritz",
+        title:"Lead Instructor",
+        numberOfDogs:0
     },
     {
-        "ID":3,
-        "Full Name":"CJ Reynolds",
-        "Title":"Lead Instructor",
-        "Number of Dogs":0
+        id:3,
+        fullName:"CJ Reynolds",
+        title:"Lead Instructor",
+        numberOfDogs:0
     },
     {
-        "ID":4,
-        "Full Name":"Brooks Patton",
-        "Title":"Lead Instructor",
-        "Number of Dogs":0
+        id:4,
+        fullName:"Brooks Patton",
+        title:"Lead Instructor",
+        numberOfDogs:0
     },
     {
-        "ID":5,
-        "Full Name":"Roberto Ortega",
-        "Title":"Lead Instructor",
-        "Number of Dogs":1
+        id:5,
+        fullName:"Roberto Ortega",
+        title:"Lead Instructor",
+        numberOfDogs:1
     },
     {
-        "ID":6,
-        "Full Name":"Chad Drummond",
-        "Title":"Instructor",
-        "Number of Dogs":0
+        id:6,
+        fullName:"Chad Drummond",
+        title:"Instructor",
+        numberOfDogs:0
     },
     {
-        "ID":7,
-        "Full Name":"Kim Schlesinger",
-        "Title":"Instructor",
-        "Number of Dogs":0
+        id:7,
+        fullName:"Kim Schlesinger",
+        title:"Instructor",
+        numberOfDogs:0
     },
     {
-        "ID":8,
-        "Full Name":"Peter Ostiguy",
-        "Title":"Associate Instructor",
-        "Number of Dogs":1
+        id:8,
+        fullName:"Peter Ostiguy",
+        title:"Associate Instructor",
+        numberOfDogs:1
     },
     {
-        "ID":9,
-        "Full Name":"Cass Torske",
-        "Title":"Resident",
-        "Number of Dogs":1
+        id:9,
+        fullName:"Cass Torske",
+        title:"Resident",
+        numberOfDogs:1
     },
     {
-        "ID":10,
-        "Full Name":"Matt Winzer",
-        "Title":"Resident",
-        "Number of Dogs":2
+        id:10,
+        fullName:"Matt Winzer",
+        title:"Resident",
+        numberOfDogs:2
     },
     {
-        "ID":11,
-        "Full Name":"Aaron Goodman",
-        "Title":"Resident",
-        "Number of Dogs":0
+        id:11,
+        fullName:"Aaron Goodman",
+        title:"Resident",
+        numberOfDogs:0
     },
     {
-        "ID":12,
-        "Full Name":"Michelle Bergquist",
-        "Title":"Resident",
-        "Number of Dogs":1
+        id:12,
+        fullName:"Michelle Bergquist",
+        title:"Resident",
+        numberOfDogs:1
     }
 
 ];
 
 function findByID(id){
-    return data.filter( i => i["ID"] == id)[0];
+    return data.filter( i => i[id] == id)[0];
 }
 
 app.use(cors());
@@ -98,4 +98,4 @@ app.get("/:id", (request, response) => {
     : response.status(404).json({error: {"message":"No record found!"} });
 });
 
-app.listen(port)
+app.listen(port);
